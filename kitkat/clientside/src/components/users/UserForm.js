@@ -18,15 +18,15 @@ export class UserForm extends Component {
     onChange = e => this.setState({[e.target.name]: e.target.value})
     onSubmit = e => {
         e.preventDefault();
-        console.log(e);
         const { name, username, email, message } = this.state;
         const user = { name, email, username, message };
         this.props.addUser(user);
         this.setState({
-            name: '',
-            email: '',
-            message: '',
-          });
+            name: "",
+            email: "",
+            username: "",
+            message: ""
+        });
     } 
     render() {
         const { name, username, email, message } = this.state;

@@ -16,7 +16,6 @@ export class Users extends Component {
 
     render() {
         return (
-            <div>
                 <Fragment>
                     <h2>Users</h2>
                     <table className="table table-striped">
@@ -46,7 +45,6 @@ export class Users extends Component {
                         </tbody>
                     </table>
                 </Fragment>
-                </div>
         )
     }
 }
