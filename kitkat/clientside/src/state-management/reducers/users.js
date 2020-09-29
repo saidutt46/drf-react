@@ -1,4 +1,4 @@
-import { GET_USERS, DELETE_USER, ADD_USER } from '../actions/types.js';
+import { GET_USERS, DELETE_USER, ADD_USER, CLEAR_USERS } from '../actions/types.js';
 
 const initialState = {
     users: [],
@@ -21,6 +21,11 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 users: [...state.users, action.payload]
+            };
+        case CLEAR_USERS:
+            return {
+                ...state,
+                leads: [],
             };
         default:
             return state

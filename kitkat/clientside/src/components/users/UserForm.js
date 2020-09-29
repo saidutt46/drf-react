@@ -32,7 +32,7 @@ export class UserForm extends Component {
         const { name, username, email, message } = this.state;
         return (
             <div className="card card-body mt-4 mb-4">
-                <h2>Add User</h2>
+                <h2>Add Leads</h2>
                 <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                     <label>Name</label>

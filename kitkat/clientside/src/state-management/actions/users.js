@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { createMessage, returnErrors } from './messages';
 import { GET_USERS, DELETE_USER, ADD_USER } from './types';
+import { tokenConfig } from './auth';
 
 // get users
-export const getUsers = () => dispatch => {
-    axios.get('/api/users/').then(res => {
+export const getUsers = () => (dispatch, getState) => {
+    axios.get('/api/users/', tokenConfig(getState)).then(res => {
         dispatch({
             type: GET_USERS,
             payload: res.data
@@ -13,8 +14,8 @@ export const getUsers = () => dispatch => {
 };
 
 // delete users
-export const deleteUser = (id) => dispatch => {
-    axios.delete(`/api/users/${id}/`).then(res => {
+export const deleteUser = (id) => (dispatch, getState) => {
+    axios.delete(`/api/users/${id}/`, tokenConfig(getState)).then(res => {
         dispatch(createMessage({ userDeleted: 'Succesfully deleted user' }));
         dispatch({
             type: DELETE_USER,
@@ -24,9 +25,8 @@ export const deleteUser = (id) => dispatch => {
 };
 
 // ADD user
-export const addUser = (user) => dispatch => {
-    console.log(user);
-    axios.post('/api/users/', user).then(res => {
+export const addUser = (user) => (dispatch, getState) => {
+    axios.post('/api/users/', user, tokenConfig(getState)).then(res => {
         dispatch(createMessage({ userAdded: `Successfully added user - ${user.name}` }));
         dispatch({
             type: ADD_USER,
