@@ -7,7 +7,6 @@ export class UserForm extends Component {
     state = {
         name: "",
         email: "",
-        username: "",
         message: ""
     }
 
@@ -18,18 +17,17 @@ export class UserForm extends Component {
     onChange = e => this.setState({[e.target.name]: e.target.value})
     onSubmit = e => {
         e.preventDefault();
-        const { name, username, email, message } = this.state;
-        const user = { name, email, username, message };
+        const { name, email, message } = this.state;
+        const user = { name, email, message };
         this.props.addUser(user);
         this.setState({
             name: "",
             email: "",
-            username: "",
             message: ""
         });
     } 
     render() {
-        const { name, username, email, message } = this.state;
+        const { name, email, message } = this.state;
         return (
             <div className="card card-body mt-4 mb-4">
                 <h2>Add Leads</h2>
@@ -42,16 +40,6 @@ export class UserForm extends Component {
                     name="name"
                     onChange={this.onChange}
                     value={name}
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Username</label>
-                    <input
-                    className="form-control"
-                    type="text"
-                    name="username"
-                    onChange={this.onChange}
-                    value={username}
                     />
                 </div>
                 <div className="form-group">

@@ -23,7 +23,6 @@ export class Users extends Component {
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Username</th>
                                 <th>Email</th>
                                 <th>Message</th>
                                 <th></th>
@@ -34,7 +33,6 @@ export class Users extends Component {
                                 <tr key={user.id}>
                                     <td>{user.id}</td>
                                     <td>{user.name}</td>
-                                    <td>{user.username}</td>
                                     <td>{user.email}</td>
                                     <td>{user.message}</td>
                                     <td>

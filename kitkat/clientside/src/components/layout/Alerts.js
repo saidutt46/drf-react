@@ -22,9 +22,6 @@ export class Alerts extends Component {
             if (error.msg.message) {
                 alert.error(`Message - ${error.msg.message.join()}`);
             }
-            if (error.msg.username) {
-                alert.error(`Username - ${error.msg.username.join()}`);
-            }
         }
 
         if (message !== prevProps.message) {
